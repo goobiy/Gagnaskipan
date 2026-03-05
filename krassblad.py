@@ -1,0 +1,26 @@
+
+
+from collections import deque
+
+d = deque([20,50,40],maxlen=4)
+print(d)
+d.append(10)
+d.appendleft(30)
+print(d)
+d.pop()
+print(d)
+d.popleft()
+print(d)
+print("-"*100)
+# d.appendleft(200)
+# print(d)
+# d.appendleft(0)
+# print(d)
+# d.appendleft(60)
+# print(d)
+# d.appendleft(70)
+# print(d)
+# d.append(1000)
+# print(d)
+# d.append(300)
+# print(d)
