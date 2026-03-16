@@ -145,7 +145,7 @@ class BinarySearchTree(IBinarySearchTree):
         """
         Returns True if an element with key is in the tree, otherwise False.
         """
-        # TO DO ...
+        
         return False
 
     def get(self, key: object) -> object:
