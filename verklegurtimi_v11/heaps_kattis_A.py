@@ -70,6 +70,8 @@ class PQMinList:
 def main():
     q = int(input())
     instances: dict[int, PQMinList] = {}
+    for i in range(1,1001):
+        instances[i] = PQMinList()
 
     for _ in range(q):
         parts = input().split()
@@ -83,8 +85,6 @@ def main():
 
         if op == 'a':
             src_id = int(parts[2])
-            if src_id not in instances: # fix á kattis
-                instances[src_id] = PQMinList()
             instances[iid] = instances[src_id].copy()
         elif op == '+':                     # push
             heap.push(int(parts[2]))
