@@ -1,7 +1,10 @@
 import sys
+import datetime
 
 def main():
     history = []
+    new_history = {}
+
     current = -1  # index into history
 
     print("Browser ready. Commands: visit <page>, back, forward, quit")
@@ -27,6 +30,8 @@ def main():
             current += 1
             history = history[:current]
             history.append(page)
+            date = datetime.datetime.now()
+            new_history[page] = date
             print(page)
 
         elif action == "back":
@@ -42,6 +47,15 @@ def main():
             else:
                 current += 1
                 print(history[current])
+        elif action == "history":
+            if not history:
+                print("Error, no pages visited")
+                continue
+            seen = set()
+            for pg in reversed(history):
+                if pg not in seen:
+                    seen.add(pg)
+                    print(pg, new_history[pg])
 
         else:
             print(f"<error: unknown command '{action}'>")
