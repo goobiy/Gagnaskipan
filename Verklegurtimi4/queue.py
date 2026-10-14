@@ -59,21 +59,37 @@ class Queue:
         return "[" + ", ".join(str(x) for x in items) + "]"
 
 
-a = Queue(4)
 
-print(a)
+def hot_potato(names: list[str], k: int) -> str:
+    a = Queue(10)
 
-a.enqueue(2)
-print(a)
-a.enqueue(3)
-a.enqueue(6)
-a.enqueue(10)
-print(a)
-a.dequeue()
-print(a)
-a.enqueue(20)
-print(a)
-a.dequeue()
-print(a)
-a.enqueue(100)
-print(a)
+    for n in names:
+        a.enqueue(n)
+    
+    while k > 1:
+        for i in range(k):
+            front = a.dequeue()
+            a.enqueue(front)
+        a.dequeue()
+        k -= 1
+    return a.front()
+        
+
+print(hot_potato(["alice","bob","carol"], 2))
+
+# print(a)
+
+# a.enqueue(2)
+# print(a)
+# a.enqueue(3)
+# a.enqueue(6)
+# a.enqueue(10)
+# print(a)
+# a.dequeue()
+# print(a)
+# a.enqueue(20)
+# print(a)
+# a.dequeue()
+# print(a)
+# a.enqueue(100)
+# print(a)

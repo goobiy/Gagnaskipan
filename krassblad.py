@@ -1,3 +1,4 @@
+from collections import deque
 
 
 # from collections import deque
@@ -34,11 +35,31 @@
 #     return ps
 
 
-def hanoi(n, source, target, auxiliary):
-    if n == 0:                          # base case
-        return
-    hanoi(n-1, source, auxiliary, target)   # step 1
-    print(f"Move disk {n}: {source} → {target}")  # step 2
-    hanoi(n-1, auxiliary, target, source)   # step 3
+# def hanoi(n, source, target, auxiliary):
+#     if n == 0:                          # base case
+#         return
+#     hanoi(n-1, source, auxiliary, target)   # step 1
+#     print(f"Move disk {n}: {source} → {target}")  # step 2
+#     hanoi(n-1, auxiliary, target, source)   # step 3
 
-hanoi(3, 'A', 'C', 'B')
+# hanoi(3, 'A', 'C', 'B')
+
+
+
+
+
+def is_palindrome(s: str) -> bool:
+    d = deque()
+    check = ""
+
+    for l in s[::-1]:
+        d.append(l)
+
+    counter = 0
+    for e in d:
+        check += d[counter]
+        counter += 1
+
+    return s == check
+
+print(is_palindrome("hello"))

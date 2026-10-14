@@ -39,24 +39,36 @@ class Stack:
                 stack.pop()
         return stack.is_empty()
 
-a = Stack()
 
-a.push(2)
-a.push(3)
-a.push(4)
+def reverse_string(s: str) -> str:
+    stack = Stack()
+    s = s.strip()
+    for let in s[::-1]:
+        stack.push(let)
+    
+    return stack
 
-print(a)
+print(reverse_string("hello"))
 
-a.pop()
 
-print(a)
 
-print(a)
 
-print(a.top())
+# a.push(2)
+# a.push(3)
+# a.push(4)
 
-print(a.size)
+# print(a)
 
-print(a.is_empty())
+# a.pop()
 
-print(a.matching_par("hello"))
+# print(a)
+
+# print(a)
+
+# print(a.top())
+
+# print(a.size)
+
+# print(a.is_empty())
+
+# print(a.matching_par("hello"))
